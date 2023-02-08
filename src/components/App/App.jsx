@@ -1,39 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
-import { Box } from 'components/Box/Box';
-import { selecError, selectIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-import { Loader } from 'components/Loader/Loader';
-import { Title, TitleList } from 'components/App/App.styled';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+import { routes } from 'constants/routes';
+import { Home } from 'pages/Home/Home';
+import { Register } from 'pages/Register/Register';
+import { Login } from 'pages/Login/Login';
+import { Contacts } from 'pages/Contacts/Contacts';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selecError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  if (error) return <p>Download error</p>;
-
   return (
-    <Box
-      fontSize={28}
-      width={600}
-      mx="auto"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-    >
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <TitleList>Contacts</TitleList>
-      <Filter />
-      {isLoading ? <Loader /> : <ContactList />}
-    </Box>
+    <Routes>
+      <Route path={routes.home} element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path={routes.register} element={<Register />} />
+        <Route path={routes.login} element={<Login />} />
+        <Route path={routes.contacts} element={<Contacts />} />
+        <Route path="*" element={<Navigate to={routes.home} />} />
+      </Route>
+    </Routes>
   );
 };

@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Loader } from 'components/Loader/Loader';
 import { deleteContact } from 'redux/operations';
 import { selectFilteredContact } from 'redux/selectors';
 import {
@@ -14,15 +15,18 @@ export const ContactList = () => {
   console.log('list');
 
   return (
-    <List>
-      {filteredContact.map(({ id, name, number }) => (
-        <ContactItem key={id}>
-          {name}: {number}
-          <Button type="button" onClick={() => dispatch(deleteContact(id))}>
-            Delete
-          </Button>
-        </ContactItem>
-      ))}
-    </List>
+    <>
+      <Loader />
+      <List>
+        {filteredContact.map(({ id, name, number }) => (
+          <ContactItem key={id}>
+            {name}: {number}
+            <Button type="button" onClick={() => dispatch(deleteContact(id))}>
+              Delete
+            </Button>
+          </ContactItem>
+        ))}
+      </List>
+    </>
   );
 };
