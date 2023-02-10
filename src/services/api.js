@@ -31,15 +31,6 @@ export const deleteContactApi = async id => {
   }
 };
 
-// export const updateContactApi = async id => {
-//   try {
-//     const response = await axios.patch(`/contacts/${id}`);
-//     return response.data;
-//   } catch (error) {
-//     return alert(error.message);
-//   }
-// };
-
 // ============= auth fetch =============
 
 export const registerUserApi = async newUser => {
@@ -68,7 +59,6 @@ export const logoutUserApi = async () => {
   }
 };
 
-// ================================
 export const getCurrentUserApi = async () => {
   try {
     const response = await axios.get('/users/current');
@@ -77,4 +67,3 @@ export const getCurrentUserApi = async () => {
     return alert(error.message);
   }
 };
-//==================================

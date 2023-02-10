@@ -46,14 +46,12 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      // =================================
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isAuth = true;
         state.isLoading = false;
         state.error = null;
       })
-      // ==================================
       .addMatcher(
         action =>
           action.type.startsWith('auth') && action.type.endsWith('pending'),

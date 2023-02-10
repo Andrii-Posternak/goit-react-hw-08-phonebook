@@ -9,12 +9,10 @@ import { Login } from 'pages/Login/Login';
 import { Contacts } from 'pages/Contacts/Contacts';
 
 export const App = () => {
-  // // ============================
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCurrentUser());
   }, [dispatch]);
-  // ==========================
 
   return (
     <Routes>
