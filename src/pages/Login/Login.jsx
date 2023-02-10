@@ -1,9 +1,15 @@
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import { useDispatch } from 'react-redux';
+import { AuthForm } from 'components/AuthForm/AuthForm';
+import { loginUser } from 'redux/Auth/authOperations';
 
 export const Login = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmt = form => {
+    dispatch(loginUser(form));
+  };
+
   return (
-    <div>
-      <LoginForm />
-    </div>
+    <AuthForm authType={'login'} btnTitle={'Login'} onSubmit={handleSubmt} />
   );
 };

@@ -1,8 +1,21 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { ButtonAuth } from 'components/AuthNav/AuthNav.styled';
+import { logoutUser } from 'redux/Auth/authOperations';
+import { selectUser } from 'redux/Auth/authSelectors';
+import { Wrap } from 'components/UserMenu/UserMenu.styled';
+
 export const UserMenu = () => {
+  const dispatch = useDispatch();
+  const userAuth = useSelector(selectUser);
+
+  const handleLoguot = () => {
+    dispatch(logoutUser());
+  };
+
   return (
-    <div>
-      <p>mango@mail.com</p>
-      <button>Logout</button>
-    </div>
+    <Wrap>
+      <p>{userAuth?.email}</p>
+      <ButtonAuth onClick={handleLoguot}>Logout</ButtonAuth>
+    </Wrap>
   );
 };

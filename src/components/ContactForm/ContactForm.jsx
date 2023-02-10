@@ -2,18 +2,12 @@ import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
-import {
-  Form,
-  Label,
-  Input,
-  Button,
-} from 'components/ContactForm/ContactForm.styled';
+import { Form, Label, Input } from 'components/ContactForm/ContactForm.styled';
+import { Button } from 'components/Button/Button.styled';
 
 export const ContactForm = memo(() => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
-  console.log('form');
 
   const onSubmitForm = event => {
     event.preventDefault();

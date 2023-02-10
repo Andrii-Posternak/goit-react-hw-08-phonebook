@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://63e2579e109336b6cb057ad2.mockapi.io/api/v1';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+
+// ============= contacts fetch =============
 
 export const fetchContactsApi = async () => {
   try {
@@ -23,9 +25,56 @@ export const addContactApi = async newContact => {
 export const deleteContactApi = async id => {
   try {
     const response = await axios.delete(`/contacts/${id}`);
-
     return response.data;
   } catch (error) {
     return alert(error.message);
   }
 };
+
+// export const updateContactApi = async id => {
+//   try {
+//     const response = await axios.patch(`/contacts/${id}`);
+//     return response.data;
+//   } catch (error) {
+//     return alert(error.message);
+//   }
+// };
+
+// ============= auth fetch =============
+
+export const registerUserApi = async newUser => {
+  try {
+    const response = await axios.post('/users/signup', newUser);
+    return response.data;
+  } catch (error) {
+    return alert(error.message);
+  }
+};
+
+export const loginUserApi = async userData => {
+  try {
+    const response = await axios.post('/users/login', userData);
+    return response.data;
+  } catch (error) {
+    return alert(error.message);
+  }
+};
+
+export const logoutUserApi = async () => {
+  try {
+    await axios.post('/users/logout');
+  } catch (error) {
+    return alert(error.message);
+  }
+};
+
+// ================================
+export const getCurrentUserApi = async () => {
+  try {
+    const response = await axios.get('/users/current');
+    return response.data;
+  } catch (error) {
+    return alert(error.message);
+  }
+};
+//==================================

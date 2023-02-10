@@ -1,5 +1,5 @@
-import { RotatingLines } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
+import { RotatingLines } from 'react-loader-spinner';
 import { selectIsLoading } from 'redux/selectors';
 
 export const Loader = () => {

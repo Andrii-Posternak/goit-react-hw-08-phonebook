@@ -1,9 +1,19 @@
-import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
+import { useDispatch } from 'react-redux';
+import { AuthForm } from 'components/AuthForm/AuthForm';
+import { registerUser } from 'redux/Auth/authOperations';
 
 export const Register = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmt = form => {
+    dispatch(registerUser(form));
+  };
+
   return (
-    <div>
-      <RegistrationForm />
-    </div>
+    <AuthForm
+      authType={'register'}
+      btnTitle={'Register'}
+      onSubmit={handleSubmt}
+    />
   );
 };

@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
 export const Label = styled.label`
-  font-size: 24px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const Input = styled.input`
-   {
-    width: 200px;
-    margin-top: 15px;
-    padding: 5px;
-  }
+  width: 200px;
+  margin-top: 15px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
 
   :focus {
     outline: none;

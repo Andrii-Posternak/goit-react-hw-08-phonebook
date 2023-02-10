@@ -7,9 +7,9 @@ export const Filter = () => {
 
   return (
     <Label>
-      Find contacts by name
       <Input
         type="text"
+        placeholder="Enter contact name"
         name="filter"
         onChange={event => dispatch(changeFilter(event.target.value))}
       />

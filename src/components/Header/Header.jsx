@@ -1,31 +1,23 @@
+import { useSelector } from 'react-redux';
+import { MdOutlineContactPhone } from 'react-icons/md';
+import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserMenu } from 'components/UserMenu/UserMenu';
-import { routes } from 'constants/routes';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { selectIsAuth } from 'redux/Auth/authSelectors';
+import { HeaderWrap, Logo } from 'components/Header/Header.styled';
+import { Container } from 'components/Containers/Containers.styled';
 
 export const Header = () => {
-  const location = useLocation();
+  const isAuth = useSelector(selectIsAuth);
+
   return (
-    <div>
-      <header>
-        <h1>Phonebook</h1>
-        <NavLink to={routes.home}>Home</NavLink>
-        <br />
-        {location.pathname !== routes.home && (
-          <NavLink to={routes.contacts}>Contacts</NavLink>
-        )}
-        <br />
-        {location.pathname !== routes.contacts && (
-          <>
-            <button type="button">
-              <Link to={routes.login}>Login</Link>
-            </button>
-            <button type="button">
-              <Link to={routes.register}>Register</Link>
-            </button>
-          </>
-        )}
-        {location.pathname !== routes.home && <UserMenu />}
-      </header>
-    </div>
+    <Container>
+      <HeaderWrap>
+        <Logo>
+          <MdOutlineContactPhone />
+          Phonebook
+        </Logo>
+        {!isAuth ? <AuthNav /> : <UserMenu />}
+      </HeaderWrap>
+    </Container>
   );
 };
