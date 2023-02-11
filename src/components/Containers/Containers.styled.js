@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   box-sizing: border-box;
   font-size: 20px;
-  // font-weight: bold;
   display: flex;
   align-items: center;
   width: 600px;

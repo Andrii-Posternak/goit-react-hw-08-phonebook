@@ -6,15 +6,15 @@ import {
   List,
   ContactItem,
   Button,
+  ContainerList,
 } from 'components/ContactList/ContactList.styled';
-import { Container } from 'components/Containers/Containers.styled';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
   const filteredContact = useSelector(selectFilteredContact);
 
   return (
-    <Container>
+    <ContainerList>
       <Loader />
       <List>
         {filteredContact.map(({ id, name, number }) => (
@@ -26,6 +26,6 @@ export const ContactList = () => {
           </ContactItem>
         ))}
       </List>
-    </Container>
+    </ContainerList>
   );
 };

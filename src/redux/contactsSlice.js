@@ -27,11 +27,6 @@ const contactsSlice = createSlice({
         state.error = null;
         state.items = state.items.filter(el => el.id !== action.payload);
       })
-      // .addCase(updateContact.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   state.items = action.payload;
-      // })
       .addMatcher(
         action =>
           action.type.startsWith('contacts') && action.type.endsWith('pending'),

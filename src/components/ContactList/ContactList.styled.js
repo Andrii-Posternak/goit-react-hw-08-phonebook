@@ -1,11 +1,22 @@
 import styled from 'styled-components';
 
+export const ContainerList = styled.div`
+  box-sizing: border-box;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  width: 600px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 export const List = styled.ul`
   list-style-type: numeric;
 `;
 
 export const ContactItem = styled.li`
-  // font-size: 24px;
   margin-bottom: 10px;
 `;
 
