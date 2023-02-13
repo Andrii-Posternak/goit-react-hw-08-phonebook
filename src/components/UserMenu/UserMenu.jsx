@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonAuth } from 'components/AuthNav/AuthNav.styled';
-import { logoutUser } from 'redux/Auth/authOperations';
-import { selectUser } from 'redux/Auth/authSelectors';
+import { logoutUser } from 'redux/auth/authOperations';
+import { selectUser } from 'redux/auth/authSelectors';
 import { Wrap } from 'components/UserMenu/UserMenu.styled';
 
 export const UserMenu = () => {

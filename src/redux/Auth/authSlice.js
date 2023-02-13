@@ -4,7 +4,7 @@ import {
   loginUser,
   logoutUser,
   getCurrentUser,
-} from 'redux/Auth/authOperations';
+} from 'redux/auth/authOperations';
 
 const authInitialState = {
   user: {
@@ -52,9 +52,9 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      // .addCase(getCurrentUser.rejected, (state, action) => {
-      //   state.token = null;
-      // })
+      .addCase(getCurrentUser.rejected, (state, action) => {
+        state.token = null;
+      })
       .addMatcher(
         action =>
           action.type.startsWith('auth') && action.type.endsWith('pending'),

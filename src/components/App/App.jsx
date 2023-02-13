@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getCurrentUser } from 'redux/Auth/authOperations';
+import { getCurrentUser } from 'redux/auth/authOperations';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
-import { PrivateRoute, PublicRoute, routes } from 'constants/routes';
+import { routes } from 'constants/routes';
+import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
+import { PublicRoute } from 'components/PublicRoute/PublicRoute';
 import { Register } from 'pages/Register/Register';
 import { Login } from 'pages/Login/Login';
 import { Contacts } from 'pages/Contacts/Contacts';

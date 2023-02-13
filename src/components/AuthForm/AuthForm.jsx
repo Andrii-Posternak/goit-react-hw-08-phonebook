@@ -53,7 +53,7 @@ export const AuthForm = ({ authType, btnTitle, onSubmit }) => {
       <Label>
         Password
         <Input
-          type="text"
+          type="password"
           name="password"
           value={password}
           onChange={handleChange}

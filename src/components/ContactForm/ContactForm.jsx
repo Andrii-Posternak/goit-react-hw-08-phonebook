@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/contactsOperations';
 import { Form, Label, Input } from 'components/ContactForm/ContactForm.styled';
 import { Button } from 'components/Button/Button.styled';
 

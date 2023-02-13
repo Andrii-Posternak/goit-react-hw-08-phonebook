@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { changeFilter } from 'redux/filterSlice';
+import { changeFilter } from 'redux/filter/filterSlice';
 import { Label, Input } from 'components/Filter/Filter.styled';
 
 export const Filter = () => {
@@ -9,7 +9,7 @@ export const Filter = () => {
     <Label>
       <Input
         type="text"
-        placeholder="Enter contact name"
+        placeholder="Find contact"
         name="filter"
         onChange={event => dispatch(changeFilter(event.target.value))}
       />

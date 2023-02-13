@@ -4,8 +4,8 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { selecError } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-import { selectIsAuth } from 'redux/Auth/authSelectors';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { selectIsAuth } from 'redux/auth/authSelectors';
 import { ContainerContacts } from 'pages/Contacts/Contacts.styled';
 
 export const Contacts = () => {
