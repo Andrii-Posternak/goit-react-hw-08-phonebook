@@ -59,11 +59,8 @@ export const logoutUserApi = async () => {
   }
 };
 
-export const getCurrentUserApi = async () => {
-  try {
-    const response = await axios.get('/users/current');
+export const getCurrentUserApi = () => {
+  return axios.get('/users/current').then(response => {
     return response.data;
-  } catch (error) {
-    return alert(error.message);
-  }
+  });
 };
