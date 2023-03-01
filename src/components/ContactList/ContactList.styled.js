@@ -20,6 +20,12 @@ export const ContactItem = styled.li`
   margin-bottom: 10px;
 `;
 
+export const ContactContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Button = styled.button`
   font-size: 16px;
   background-color: #eb4b5b;

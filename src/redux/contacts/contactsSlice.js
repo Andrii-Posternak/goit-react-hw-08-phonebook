@@ -3,6 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  updateContact,
 } from 'redux/contacts/contactsOperations';
 import { logoutUser } from 'redux/auth/authOperations';
 
@@ -18,23 +19,21 @@ const contactsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
         state.items = action.payload;
       })
       .addCase(addContact.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
         state.items.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
         state.items = state.items.filter(el => el.id !== action.payload);
       })
-      .addCase(logoutUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
+      .addCase(updateContact.fulfilled, (state, action) => {
+        const filteredContacts = state.items.filter(
+          contact => contact.id !== action.payload.id
+        );
+        state.items = [...filteredContacts, action.payload];
+      })
+      .addCase(logoutUser.fulfilled, state => {
         state.items = [];
       })
       .addMatcher(
@@ -42,6 +41,15 @@ const contactsSlice = createSlice({
           action.type.startsWith('contacts') && action.type.endsWith('pending'),
         state => {
           state.isLoading = true;
+        }
+      )
+      .addMatcher(
+        action =>
+          action.type.startsWith('contacts') &&
+          action.type.endsWith('fulfilled'),
+        state => {
+          state.isLoading = false;
+          state.error = null;
         }
       )
       .addMatcher(
